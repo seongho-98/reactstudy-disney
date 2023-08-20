@@ -16,3 +16,9 @@
     1. 최상위에 .env 만들기
     2. REACT_API_000 : 리액트 환경 변수 규칙
     3. process.env.REACT_API_000으로 사용하기.
+
+- styled component
+    - JS 안에서 css 처리할 수 있는 라이브러리
+    - 장점
+        - 컴포넌트와 연결이 좋음 -> props 활용해 css 적용 시 조건 적용가능
+        - 디자인의 확장(상속) 가능
