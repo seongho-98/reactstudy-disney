@@ -12,11 +12,11 @@ function Nav() {
       } else {
         setShow(false);
       }
-    })
+    });
 
     return () => {
       window.removeEventListener('scroll', () => {});
-    }
+    };
   }, [])
 
   return (

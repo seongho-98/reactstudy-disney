@@ -1,13 +1,14 @@
 import './App.css';
 import Nav from './components/Nav';
+import Banner from './components/Banner';
 import { styled } from 'styled-components'
+
 
 function App() {
   return (
-    
-    // <div className='App'>
     <Container >
       <Nav />
+      <Banner />
     </Container>
   ); 
 }
