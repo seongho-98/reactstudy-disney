@@ -3,6 +3,8 @@ import Nav from './components/Nav';
 import Banner from './components/Banner';
 import { styled } from 'styled-components'
 import Category from './components/Category';
+import Row from './components/Row';
+import requests from './api/request';
 
 
 function App() {
@@ -11,6 +13,12 @@ function App() {
       <Nav />
       <Banner />
       <Category />
+
+      {/* requests에 있는 url들을 props로 내려줌 */}
+      <Row tiktle="Trending Now" id="TN" fetchUrl={requests.fetchTrending} />
+      <Row tiktle="Top Rated" id="TR" fetchUrl={requests.fetchTopRated} />
+      <Row tiktle="Action Movies" id="AM" fetchUrl={requests.fetchActionMovies} />
+      <Row tiktle="Comedy Movies" id="CM" fetchUrl={requests.fetchComedyMovies} />
     </Container>
   ); 
 }

@@ -23,6 +23,26 @@
         - 컴포넌트와 연결이 좋음 -> props 활용해 css 적용 시 조건 적용가능
         - 디자인의 확장(상속) 가능
 
+- 메모이제이션 훅(useCallback, useMemo)
+    - 메모이제이션 : 계산된 값을 저장해두고 이후에 사용
+    - 왜 사용??
+        - 컴포넌트 렌더링마다, 함수가 생성됨
+        - fetchUrl이 바뀔때만 함수를 생성해주면 됨
+        - useCallBack을 사용(Row.js)
+    - useMemo
+        - 메모이제이션된 값 반환
+    - useCallback
+        - 메모이제이션된 콜백 반환
+    ```
+  const fetchMovieData = useCallback(async () => {
+    const response = await myAxios.get(fetchUrl);
+    setMovies(response.data.results);
+  }, [fetchUrl])
+  
+  useEffect(() => {
+    fetchMovieData();
+  }, [fetchMovieData])
+    ```
 
 
 - 신기한 것
