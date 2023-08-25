@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axiosMy from '../api/axios';
 import request from '../api/request';
+import "./Banner.css";
 
 function Banner() {
 
@@ -11,7 +12,7 @@ function Banner() {
   }, [])
 
   const fetchData = async() => {
-    //현재 상여웆ㅇ인 영화 정보 가져오기
+    //현재 상영중인 영화 정보 가져오기
     const response = await axiosMy.get(request.fetchNowPlaying);
 
     const movieId = response.data.results[
@@ -28,8 +29,43 @@ function Banner() {
 
   }
 
+  const truncate = (str, n) => {
+    return str?.length > n? str.substr(0, n) + '...' : str;
+  }
+
   return (
+    <header className='banner'
+    style={{
+      backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+      backgroundPosition: "top center",
+      backgroundSize: "cover",
+      // height: "300px",
+    }}
+    >
+      <div className='banner__contents'>
+        <h1 className='banner__title'>
+          {/* 앞에서 부터, 있는 것을 사용 */}
+          {movie.title || movie.name ||movie.original_name}
+        </h1>
+
+        <div className='banner__buttons'>
+          {movie?.videos?.results[0]?.key && 
+            <button
+              className='banner__button play'
+            >
+              Play
+            </button>
+          }
+        </div>
+
+        <h1 className='banner__description'>
+          {truncate(movie.overview, 100) }
+        </h1>
+
+      </div>
+      <div className='banner--fadeBottom'></div>
     <div>Banner</div>
+    </header>
   )
 }
 
