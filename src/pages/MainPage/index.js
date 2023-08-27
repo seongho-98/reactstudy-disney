@@ -3,7 +3,7 @@ import Nav from '../../components/Nav'
 import Banner from '../../components/Banner'
 import Category from '../../components/Category'
 import Row from '../../components/Row'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 import requests from '../../api/request'
 
 const MainPage = () => {

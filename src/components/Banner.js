@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axiosMy from '../api/axios';
 import request from '../api/request';
 import "./Banner.css";
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 function Banner() {
 
