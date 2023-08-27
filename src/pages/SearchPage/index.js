@@ -2,6 +2,7 @@ import Myaxios from '../../api/axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import "./SearchPage.css"
+import { useDebounce } from '../../hooks/useDebounce';
 
 const SearchPage = () => {
   
@@ -14,12 +15,14 @@ const SearchPage = () => {
 
   let query = useQuery();
   const searchTerm = query.get("q");
+  //커스텀 훅 가져옴
+  const debouncedSearchTerm = useDebounce(query.get("q"), 500);
 
   useEffect(() => {
-    if(searchTerm){ //searchTerm이 있을 때
+    if(debouncedSearchTerm){ //searchTerm이 있을 때
       fetchSearchMovie(searchTerm);
     }
-  },[searchTerm])
+  },[debouncedSearchTerm]);
 
   const fetchSearchMovie = async (searchTerm) => {
     try{
