@@ -44,6 +44,14 @@
   }, [fetchMovieData])
     ```
 
+- 검색 기능
+    - 경로 정보(pathname) : useLocation API를 사용하면 얻어올 수 있음
+        - useLocation().search : 쿼리 파라미터 얻어옴
+        - URLSearchParams : 쿼리 파라미터에서 keyt로 값을 뽑아올 수 있음.
+    - 페이지 이동 : useNavigate 사용
+        - useNavigate에 url을 넣어주면 페이지 이동
+
+---
 
 - 신기한 것
  - 부모 요소를 <>~~</>로 작성 가능
