@@ -51,6 +51,21 @@
     - 페이지 이동 : useNavigate 사용
         - useNavigate에 url을 넣어주면 페이지 이동
 
+- 리액트 요소 선택자
+    - 종류
+        - 클래스형 컴포넌트 -> createRef
+        - 함수형 컴포넌트 -> useRef
+    
+    - 사용법(함수형)
+        ```
+            -- 선택할 요소에 ref 적용 --
+
+            const Myref = useRef();
+            <div ref={Myref}>
+
+            -- ref 사용 --
+            Myref.current -> Myref값을 가지는 <div> 선택됨
+        ```
 ---
 
 - 신기한 것
